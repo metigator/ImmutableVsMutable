@@ -21,16 +21,16 @@ namespace CodeToGo.ImmutableClass
         public Date(int year, int month, int day)
         {
 
-            if (year < 1 && year > 9999)
+            if (year < 1 || year > 9999)
                 throw new ArgumentOutOfRangeException(nameof(year));
 
-            if (month < 1 && month > 12)
+            if (month < 1 || month > 12)
                 throw new ArgumentOutOfRangeException(nameof(month));
 
 
             int[] days = IsLeapYear(year) ? DaysOfMonthLeap : DaysOfMonthsNonLeap;
 
-            if (day < 1 && day > days[month])
+            if (day < 1 || day > days[month])
                 throw new ArgumentOutOfRangeException(nameof(day));
 
             Year = year;
